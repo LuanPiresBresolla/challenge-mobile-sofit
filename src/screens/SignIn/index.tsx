@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Alert, View, ScrollView } from 'react-native';
+import { Alert, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import Lottie from 'lottie-react-native';
 
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 import { useAuth } from '../../hooks/useAuth';
+
+import animation from '../../../animation.json';
 
 import { Container, Title, Content } from './styles';
 
@@ -30,18 +33,26 @@ export function SignIn() {
     <Container>
       <View style={{ marginBottom: 30 }}>
         <Title>
-          Bem-vindo {'\n'}Informe seu e-mail{'\n'}Para fazer login
+          Bem-vindo {'\n'}Informe seu e-mail{'\n'}para realizar login
         </Title>
       </View>
 
-      <Title style={{ fontSize: 50, marginBottom: 30 }}>💰📈</Title>
+      {/* <Title style={{ fontSize: 50, marginBottom: 30 }}>💰📈</Title> */}
+      <Lottie
+        source={animation}
+        resizeMode="contain"
+        autoPlay
+        loop
+        style={{ width: 450 }}
+      />
 
       <Content>
         <Input
+          label="E-mail"
           containerStyle={{ marginBottom: 20 }}
           onChangeText={text => setEmail(text)}
           value={email}
-          placeholderTextColor="#fff"
+          placeholderTextColor="#1e6494"
           placeholder="Digite seu e-mail..."
           keyboardType="email-address"
         />

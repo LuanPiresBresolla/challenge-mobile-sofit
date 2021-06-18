@@ -14,6 +14,6 @@ export const Content = styled.View`
 export const Title = styled.Text`
   font-weight: bold;
   font-size: 30px;
-  color: #fff;
+  color: #333;
   text-align: center;
 `;

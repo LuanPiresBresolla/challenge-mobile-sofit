@@ -1,12 +1,6 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  padding: 8%;
-  flex: 1;
-  align-items: center;
-`;
-
-export const CardOption = styled.TouchableOpacity`
+export const CardExpense = styled.TouchableOpacity`
   width: 100%;
   height: 80px;
   background: #e8eff5;
@@ -19,8 +13,8 @@ export const CardOption = styled.TouchableOpacity`
   flex-direction: row;
 `;
 
-export const CardOptionTitle = styled.Text`
-  font-size: 20px;
+export const CardExpenseTitle = styled.Text`
+  font-size: 16px;
   color: #1e64a1;
   font-weight: bold;
 `;

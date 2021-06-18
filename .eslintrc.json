@@ -41,6 +41,9 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
+    "no-param-reassign":"off",
+    "no-underscore-dangle": "off",
+    "no-console":"off",
     "import/extensions": [
       "error",
       "ignorePackages",

@@ -5,13 +5,14 @@ import { Container, InputLabel, InputText } from './styles';
 
 interface InputProps extends TextInputProps {
   containerStyle?: ViewStyle;
+  label: string;
 }
 
-export function Input({ containerStyle = {}, ...rest }: InputProps) {
+export function Input({ label, containerStyle = {}, ...rest }: InputProps) {
   return (
     <Container style={containerStyle}>
-      <InputLabel>E-mail</InputLabel>
-      <InputText {...rest} />
+      <InputLabel>{label}</InputLabel>
+      <InputText {...rest} importantForAutofill="no" />
     </Container>
   );
 }
