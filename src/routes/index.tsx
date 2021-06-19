@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SignIn } from '../screens/SignIn';
 import { Home } from '../screens/Home';
 import { ListExpenses } from '../screens/ListExpenses';
-import { CreateExpenses } from '../screens/CreateExpenses';
+import { FormExpenses } from '../screens/FormExpenses';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -34,8 +34,8 @@ export function Routes() {
         options={{ title: 'Despesas' }}
       />
       <Screen
-        name="CreateExpenses"
-        component={CreateExpenses}
+        name="FormExpenses"
+        component={FormExpenses}
         options={{ title: 'Adicionar despesa' }}
       />
     </Navigator>

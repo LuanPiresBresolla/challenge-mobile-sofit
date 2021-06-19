@@ -55,8 +55,15 @@ export function SignIn() {
           placeholderTextColor="#1e6494"
           placeholder="Digite seu e-mail..."
           keyboardType="email-address"
+          returnKeyType="send"
+          onSubmitEditing={handleSignIn}
         />
-        <Button title="Entrar" onPress={handleSignIn} loading={loading} />
+        <Button
+          title="Entrar"
+          onPress={handleSignIn}
+          loading={loading}
+          enabled={!loading}
+        />
       </Content>
     </Container>
   );

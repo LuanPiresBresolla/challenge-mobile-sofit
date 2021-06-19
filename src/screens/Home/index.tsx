@@ -11,7 +11,7 @@ export function Home() {
     <Container>
       <CardOption
         activeOpacity={0.7}
-        onPress={() => navigate('CreateExpenses')}
+        onPress={() => navigate('FormExpenses', { createdExpense: false })}
       >
         <CardOptionTitle>Adicionar despesa</CardOptionTitle>
         <Icon name="edit" color="#1e64a1" size={30} />
