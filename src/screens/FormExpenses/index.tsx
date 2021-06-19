@@ -124,6 +124,7 @@ export function FormExpenses() {
         containerStyle={{ marginBottom: 10 }}
         onChangeText={text => setItem(text)}
         value={item}
+        autoFocus
       />
 
       <Input

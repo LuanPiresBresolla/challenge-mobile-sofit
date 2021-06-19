@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, ActivityIndicator, View, Text } from 'react-native';
+import { ActivityIndicator, View, Text } from 'react-native';
 
 import { api } from '../../services/api';
 import { ListItemExpense } from './ListItemExpense';
 
-import { Container } from './styles';
+import { Container, ExpensesList } from './styles';
 
-interface Expenses {
+export interface Expenses {
   _id: string;
   item: string;
   value: number;
@@ -20,14 +20,13 @@ export function ListExpenses() {
   const [expenses, setExpenses] = useState<Expenses[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [loadingScreen, setLoadingScreen] = useState(true);
 
   async function loadExpenses() {
     if (loading) {
-      console.log('loading');
       return;
     }
 
-    console.log('load api');
     setLoading(true);
     const response = await api.get(`expenses`, {
       params: {
@@ -39,6 +38,7 @@ export function ListExpenses() {
     setExpenses(state => [...state, ...response.data]);
     setPage(state => state + 1);
     setLoading(false);
+    setLoadingScreen(false);
   }
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export function ListExpenses() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (loading) {
+  if (loadingScreen) {
     return (
       <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
         <ActivityIndicator size={50} color="#00dfab" />
@@ -57,9 +57,9 @@ export function ListExpenses() {
 
   return (
     <Container>
-      <FlatList
-        style={{ padding: '8%' }}
+      <ExpensesList
         data={expenses}
+        contentContainerStyle={{ paddingBottom: '15%' }}
         keyExtractor={expense => expense._id}
         showsVerticalScrollIndicator={false}
         onEndReached={expenses.length === 10 ? loadExpenses : undefined}
